@@ -10,6 +10,7 @@
 		<module>opensource-crunch</module>
 		<module>opensource-storm</module>
 		<module>opensource-hadoop</module>
+		<module>opensource-spark</module>
 	</modules>
 	
 	<properties>
