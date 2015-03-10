@@ -11,6 +11,7 @@
 		<module>opensource-storm</module>
 		<module>opensource-hadoop</module>
 		<module>opensource-spark</module>
+		<module>opensource-solr</module>
 	</modules>
 	
 	<properties>

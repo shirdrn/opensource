@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+	<property>
+		<name>solr.cloud.collection</name>
+		<value>tinycollection</value>
+	</property>
+	<property>
+		<name>solr.cloud.zk.host</name>
+		<value>slave1:2188</value>
+	</property>
+	<property>
+		<name>solr.cloud.index.commit.batch.count</name>
+		<value>1000</value>
+	</property>
+	<property>
+		<name>solr.cloud.file.heading</name>
+		<value>id,area,building_type,category,temperature,floor,code,latitude,longitude,when</value>
+	</property>
+</configuration>
