@@ -1,0 +1,120 @@
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/datasets/join/irc_basic_info.ds | head -5
+cdbaby.com	cdbaby.com	70.102.112.164	2	3
+breeze.net	breeze.net	206.72.119.156	5	6
+catoosaps.net	catoosaps.net	184.179.33.242	7	7
+chemswlive.com	chemswlive.com	209.18.64.145	8	8
+cityofnorthport.com	cityofnorthport.com	38.106.4.176	13	14
+cat: Unable to write to output stream.
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/datasets/join/irc_org_info.ds | tail -5
+95616	_public_INDEPENDENT INSURANCE
+95888	_public_INTERMARK MGMT ML VOXIP
+259661	_public_Mechanical Sales Co DATA
+286434	_public_OKURA HARDWARE AND LUMBER
+217877	|Dinara Li
+
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop jar map-input-all-join.jar org.shirdrn.hadoop.join.JoinDriver /user/xiaoxiang/datasets/join /user/xiaoxiang/output/join/map-input-all
+13/03/28 18:36:24 WARN mapred.JobClient: Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+13/03/28 18:36:24 INFO input.FileInputFormat: Total input paths to process : 2
+13/03/28 18:36:24 INFO util.NativeCodeLoader: Loaded the native-hadoop library
+13/03/28 18:36:24 WARN snappy.LoadSnappy: Snappy native library not loaded
+13/03/28 18:36:24 INFO mapred.JobClient: Running job: job_201303111631_0123
+13/03/28 18:36:25 INFO mapred.JobClient:  map 0% reduce 0%
+13/03/28 18:36:41 INFO mapred.JobClient:  map 8% reduce 0%
+13/03/28 18:36:44 INFO mapred.JobClient:  map 14% reduce 0%
+13/03/28 18:36:47 INFO mapred.JobClient:  map 20% reduce 0%
+13/03/28 18:36:50 INFO mapred.JobClient:  map 24% reduce 0%
+13/03/28 18:36:53 INFO mapred.JobClient:  map 28% reduce 0%
+13/03/28 18:37:05 INFO mapred.JobClient:  map 35% reduce 1%
+13/03/28 18:37:08 INFO mapred.JobClient:  map 42% reduce 3%
+13/03/28 18:37:11 INFO mapred.JobClient:  map 47% reduce 3%
+13/03/28 18:37:14 INFO mapred.JobClient:  map 53% reduce 3%
+13/03/28 18:37:17 INFO mapred.JobClient:  map 56% reduce 3%
+13/03/28 18:37:20 INFO mapred.JobClient:  map 57% reduce 3%
+13/03/28 18:37:23 INFO mapred.JobClient:  map 57% reduce 4%
+13/03/28 18:37:26 INFO mapred.JobClient:  map 62% reduce 4%
+13/03/28 18:37:29 INFO mapred.JobClient:  map 64% reduce 5%
+13/03/28 18:37:32 INFO mapred.JobClient:  map 75% reduce 6%
+13/03/28 18:37:35 INFO mapred.JobClient:  map 82% reduce 7%
+13/03/28 18:37:38 INFO mapred.JobClient:  map 85% reduce 7%
+13/03/28 18:37:50 INFO mapred.JobClient:  map 99% reduce 9%
+13/03/28 18:37:53 INFO mapred.JobClient:  map 100% reduce 11%
+13/03/28 18:38:02 INFO mapred.JobClient:  map 100% reduce 19%
+13/03/28 18:38:05 INFO mapred.JobClient:  map 100% reduce 30%
+13/03/28 18:38:08 INFO mapred.JobClient:  map 100% reduce 34%
+13/03/28 18:38:11 INFO mapred.JobClient:  map 100% reduce 36%
+13/03/28 18:38:14 INFO mapred.JobClient:  map 100% reduce 38%
+13/03/28 18:38:17 INFO mapred.JobClient:  map 100% reduce 40%
+13/03/28 18:38:20 INFO mapred.JobClient:  map 100% reduce 45%
+13/03/28 18:38:23 INFO mapred.JobClient:  map 100% reduce 56%
+13/03/28 18:38:26 INFO mapred.JobClient:  map 100% reduce 62%
+13/03/28 18:38:29 INFO mapred.JobClient:  map 100% reduce 74%
+13/03/28 18:38:38 INFO mapred.JobClient:  map 100% reduce 75%
+13/03/28 18:38:41 INFO mapred.JobClient:  map 100% reduce 79%
+13/03/28 18:38:47 INFO mapred.JobClient:  map 100% reduce 83%
+13/03/28 18:38:50 INFO mapred.JobClient:  map 100% reduce 86%
+13/03/28 18:38:53 INFO mapred.JobClient:  map 100% reduce 94%
+13/03/28 18:38:56 INFO mapred.JobClient:  map 100% reduce 96%
+13/03/28 18:39:02 INFO mapred.JobClient:  map 100% reduce 100%
+13/03/28 18:39:07 INFO mapred.JobClient: Job complete: job_201303111631_0123
+13/03/28 18:39:07 INFO mapred.JobClient: Counters: 29
+13/03/28 18:39:07 INFO mapred.JobClient:   Job Counters 
+13/03/28 18:39:07 INFO mapred.JobClient:     Launched reduce tasks=5
+13/03/28 18:39:07 INFO mapred.JobClient:     SLOTS_MILLIS_MAPS=146705
+13/03/28 18:39:07 INFO mapred.JobClient:     Total time spent by all reduces waiting after reserving slots (ms)=0
+13/03/28 18:39:07 INFO mapred.JobClient:     Total time spent by all maps waiting after reserving slots (ms)=0
+13/03/28 18:39:07 INFO mapred.JobClient:     Launched map tasks=7
+13/03/28 18:39:07 INFO mapred.JobClient:     Data-local map tasks=7
+13/03/28 18:39:07 INFO mapred.JobClient:     SLOTS_MILLIS_REDUCES=223211
+13/03/28 18:39:07 INFO mapred.JobClient:   File Output Format Counters 
+13/03/28 18:39:07 INFO mapred.JobClient:     Bytes Written=424035952
+13/03/28 18:39:07 INFO mapred.JobClient:   FileSystemCounters
+13/03/28 18:39:07 INFO mapred.JobClient:     FILE_BYTES_READ=662174325
+13/03/28 18:39:07 INFO mapred.JobClient:     HDFS_BYTES_READ=399459664
+13/03/28 18:39:07 INFO mapred.JobClient:     FILE_BYTES_WRITTEN=993149119
+13/03/28 18:39:07 INFO mapred.JobClient:     HDFS_BYTES_WRITTEN=424035952
+13/03/28 18:39:07 INFO mapred.JobClient:   File Input Format Counters 
+13/03/28 18:39:07 INFO mapred.JobClient:     Bytes Read=399458749
+13/03/28 18:39:07 INFO mapred.JobClient:   Map-Reduce Framework
+13/03/28 18:39:07 INFO mapred.JobClient:     Map output materialized bytes=330960078
+13/03/28 18:39:07 INFO mapred.JobClient:     Map input records=6956606
+13/03/28 18:39:07 INFO mapred.JobClient:     Reduce shuffle bytes=322070397
+13/03/28 18:39:07 INFO mapred.JobClient:     Spilled Records=20869818
+13/03/28 18:39:07 INFO mapred.JobClient:     Map output bytes=317046656
+13/03/28 18:39:07 INFO mapred.JobClient:     CPU time spent (ms)=258080
+13/03/28 18:39:07 INFO mapred.JobClient:     Total committed heap usage (bytes)=2211184640
+13/03/28 18:39:07 INFO mapred.JobClient:     Combine input records=0
+13/03/28 18:39:07 INFO mapred.JobClient:     SPLIT_RAW_BYTES=915
+13/03/28 18:39:07 INFO mapred.JobClient:     Reduce input records=6956606
+13/03/28 18:39:07 INFO mapred.JobClient:     Reduce input groups=296612
+13/03/28 18:39:07 INFO mapred.JobClient:     Combine output records=0
+13/03/28 18:39:07 INFO mapred.JobClient:     Physical memory (bytes) snapshot=2773319680
+13/03/28 18:39:07 INFO mapred.JobClient:     Reduce output records=6659994
+13/03/28 18:39:07 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=6525943808
+13/03/28 18:39:07 INFO mapred.JobClient:     Map output records=6956606
+
+
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -lsr /user/xiaoxiang/output/join/map-input-all
+-rw-r--r--   3 xiaoxiang supergroup          0 2013-03-28 18:39 /user/xiaoxiang/output/join/map-input-all/_SUCCESS
+drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-28 18:36 /user/xiaoxiang/output/join/map-input-all/_logs
+drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-28 18:36 /user/xiaoxiang/output/join/map-input-all/_logs/history
+-rw-r--r--   3 xiaoxiang supergroup      42629 2013-03-28 18:36 /user/xiaoxiang/output/join/map-input-all/_logs/history/job_201303111631_0123_1364466984232_xiaoxiang_map-input-all+join
+-rw-r--r--   3 xiaoxiang supergroup      21070 2013-03-28 18:36 /user/xiaoxiang/output/join/map-input-all/_logs/history/job_201303111631_0123_conf.xml
+-rw-r--r--   3 xiaoxiang supergroup   88670783 2013-03-28 18:38 /user/xiaoxiang/output/join/map-input-all/part-r-00000
+-rw-r--r--   3 xiaoxiang supergroup   92781806 2013-03-28 18:37 /user/xiaoxiang/output/join/map-input-all/part-r-00001
+-rw-r--r--   3 xiaoxiang supergroup   69821048 2013-03-28 18:38 /user/xiaoxiang/output/join/map-input-all/part-r-00002
+-rw-r--r--   3 xiaoxiang supergroup   74505944 2013-03-28 18:38 /user/xiaoxiang/output/join/map-input-all/part-r-00003
+-rw-r--r--   3 xiaoxiang supergroup   98256371 2013-03-28 18:38 /user/xiaoxiang/output/join/map-input-all/part-r-00004
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/join/map-input-all/part-r-00000 | head -5
+5	1	breeze.net	206.72.119.156	5	Breeze
+10	1	www.seb.fr	84.37.126.203	10	Easynet SAS
+10	1	www.qob.groupeseb.com	84.37.87.233	10	Easynet SAS
+10	1	avivaimmobilier.com	212.11.59.138	10	Easynet SAS
+10	1	aviva-immobilier.com	212.11.59.138	10	Easynet SAS
+cat: Unable to write to output stream.
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/join/map-input-all/part-r-00004 | head -5
+4	1	filebound.com	64.74.238.11	4	Internap Network Services Corporation
+4	1	fileboundrs.com	64.74.238.3	4	Internap Network Services Corporation
+4	1	files.naund.org	66.79.136.48	4	Internap Network Services Corporation
+4	1	activate.cambridgesoft.com	216.52.52.17	4	Internap Network Services Corporation
+4	1	extranet.herrington-carmichael.com	64.74.151.82	4	Internap Network Services Corporation
+cat: Unable to write to output stream.

@@ -1,0 +1,81 @@
+jar -cvf combine-smallfiles.jar -C ./ org/shirdrn/hadoop/smallfiles
+
+xiaoxiang@ubuntu3:~$ cd /opt/stone/cloud/hadoop-1.0.3
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -mkdir /user/xiaoxiang/datasets/smallfiles
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal /opt/stone/cloud/dataset/smallfiles/* /user/xiaoxiang/datasets/smallfiles
+
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop jar combine-smallfiles.jar org.shirdrn.hadoop.smallfiles.combine.CombineSmallfiles /user/xiaoxiang/datasets/smallfiles /user/xiaoxiang/output/smallfiles/combine
+13/03/23 21:52:09 INFO input.FileInputFormat: Total input paths to process : 117
+13/03/23 21:52:09 INFO util.NativeCodeLoader: Loaded the native-hadoop library
+13/03/23 21:52:09 WARN snappy.LoadSnappy: Snappy native library not loaded
+13/03/23 21:52:10 INFO mapred.JobClient: Running job: job_201303111631_0038
+13/03/23 21:52:11 INFO mapred.JobClient:  map 0% reduce 0%
+13/03/23 21:52:29 INFO mapred.JobClient:  map 33% reduce 0%
+13/03/23 21:52:32 INFO mapred.JobClient:  map 55% reduce 0%
+13/03/23 21:52:35 INFO mapred.JobClient:  map 76% reduce 0%
+13/03/23 21:52:38 INFO mapred.JobClient:  map 99% reduce 0%
+13/03/23 21:52:41 INFO mapred.JobClient:  map 100% reduce 0%
+13/03/23 21:53:02 INFO mapred.JobClient:  map 100% reduce 20%
+13/03/23 21:53:05 INFO mapred.JobClient:  map 100% reduce 40%
+13/03/23 21:53:14 INFO mapred.JobClient:  map 100% reduce 60%
+13/03/23 21:53:17 INFO mapred.JobClient:  map 100% reduce 80%
+13/03/23 21:53:32 INFO mapred.JobClient:  map 100% reduce 100%
+13/03/23 21:53:37 INFO mapred.JobClient: Job complete: job_201303111631_0038
+13/03/23 21:53:37 INFO mapred.JobClient: Counters: 28
+13/03/23 21:53:37 INFO mapred.JobClient:   Job Counters 
+13/03/23 21:53:37 INFO mapred.JobClient:     Launched reduce tasks=5
+13/03/23 21:53:37 INFO mapred.JobClient:     SLOTS_MILLIS_MAPS=33515
+13/03/23 21:53:37 INFO mapred.JobClient:     Total time spent by all reduces waiting after reserving slots (ms)=0
+13/03/23 21:53:37 INFO mapred.JobClient:     Total time spent by all maps waiting after reserving slots (ms)=0
+13/03/23 21:53:37 INFO mapred.JobClient:     Launched map tasks=1
+13/03/23 21:53:37 INFO mapred.JobClient:     SLOTS_MILLIS_REDUCES=69085
+13/03/23 21:53:37 INFO mapred.JobClient:   File Output Format Counters 
+13/03/23 21:53:37 INFO mapred.JobClient:     Bytes Written=237510415
+13/03/23 21:53:37 INFO mapred.JobClient:   FileSystemCounters
+13/03/23 21:53:37 INFO mapred.JobClient:     FILE_BYTES_READ=508266867
+13/03/23 21:53:37 INFO mapred.JobClient:     HDFS_BYTES_READ=147037765
+13/03/23 21:53:37 INFO mapred.JobClient:     FILE_BYTES_WRITTEN=722417364
+13/03/23 21:53:37 INFO mapred.JobClient:     HDFS_BYTES_WRITTEN=237510415
+13/03/23 21:53:37 INFO mapred.JobClient:   File Input Format Counters 
+13/03/23 21:53:37 INFO mapred.JobClient:     Bytes Read=0
+13/03/23 21:53:37 INFO mapred.JobClient:   Map-Reduce Framework
+13/03/23 21:53:37 INFO mapred.JobClient:     Map output materialized bytes=214110010
+13/03/23 21:53:37 INFO mapred.JobClient:     Map input records=3510000
+13/03/23 21:53:37 INFO mapred.JobClient:     Reduce shuffle bytes=0
+13/03/23 21:53:37 INFO mapred.JobClient:     Spilled Records=11840717
+13/03/23 21:53:37 INFO mapred.JobClient:     Map output bytes=207089980
+13/03/23 21:53:37 INFO mapred.JobClient:     CPU time spent (ms)=64200
+13/03/23 21:53:37 INFO mapred.JobClient:     Total committed heap usage (bytes)=722665472
+13/03/23 21:53:37 INFO mapred.JobClient:     Combine input records=0
+13/03/23 21:53:37 INFO mapred.JobClient:     SPLIT_RAW_BYTES=7914
+13/03/23 21:53:37 INFO mapred.JobClient:     Reduce input records=3510000
+13/03/23 21:53:37 INFO mapred.JobClient:     Reduce input groups=117
+13/03/23 21:53:37 INFO mapred.JobClient:     Combine output records=0
+13/03/23 21:53:37 INFO mapred.JobClient:     Physical memory (bytes) snapshot=820969472
+13/03/23 21:53:37 INFO mapred.JobClient:     Reduce output records=3510000
+13/03/23 21:53:37 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=3257425920
+13/03/23 21:53:37 INFO mapred.JobClient:     Map output records=3510000
+
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -ls /user/xiaoxiang/output/smallfiles/combine/
+Found 7 items
+-rw-r--r--   3 xiaoxiang supergroup          0 2013-03-23 21:53 /user/xiaoxiang/output/smallfiles/combine/_SUCCESS
+drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-23 21:52 /user/xiaoxiang/output/smallfiles/combine/_logs
+-rw-r--r--   3 xiaoxiang supergroup   48720086 2013-03-23 21:52 /user/xiaoxiang/output/smallfiles/combine/part-r-00000
+-rw-r--r--   3 xiaoxiang supergroup   48720084 2013-03-23 21:52 /user/xiaoxiang/output/smallfiles/combine/part-r-00001
+-rw-r--r--   3 xiaoxiang supergroup   44660082 2013-03-23 21:53 /user/xiaoxiang/output/smallfiles/combine/part-r-00002
+-rw-r--r--   3 xiaoxiang supergroup   48720084 2013-03-23 21:53 /user/xiaoxiang/output/smallfiles/combine/part-r-00003
+-rw-r--r--   3 xiaoxiang supergroup   46690079 2013-03-23 21:53 /user/xiaoxiang/output/smallfiles/combine/part-r-00004
+
+
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/smallfiles/combine/part-r-00000 | head -5
+data_50000_000	44 4a 20 32 31 34 34 30 30 39 39 38 37 32 31 36 20 32 31 34 34 30 31 30 30 30 32 30 39 37 20 32 32 31 34 35 32 31 34 35
+data_50000_000	44 45 20 32 31 34 34 30 30 39 39 38 37 37 33 32 20 32 31 34 34 30 31 30 30 30 31 32 34 31 20 31 38 32 34 39 37 32 37 34
+data_50000_000	42 57 20 32 31 34 34 30 30 39 39 36 39 36 33 30 20 32 31 34 34 30 31 30 30 30 30 33 38 35 20 39 34 35 38 34 39 39 31 37
+data_50000_000	50 59 20 32 31 34 34 30 30 39 39 37 37 34 35 34 20 32 31 34 34 30 30 39 39 39 39 35 32 39 20 34 38 37 33 32 33 34 39 37
+data_50000_000	4d 4c 20 32 31 34 34 30 30 39 39 37 33 35 35 36 20 32 31 34 34 30 30 39 39 39 38 36 37 33 20 36 33 30 38 36 32 34 36 31
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/smallfiles/combine/part-r-00000 | tail -5
+data_50000_230	43 52 20 32 31 34 38 36 36 38 31 36 38 36 38 36 20 32 31 34 38 36 36 38 31 39 35 30 36 38 20 36 39 35 39 38 38 34 30 33
+data_50000_230	50 52 20 32 31 34 38 36 36 38 31 36 35 36 34 36 20 32 31 34 38 36 36 38 31 39 34 36 34 30 20 38 34 30 36 35 31 39 38 38
+data_50000_230	53 52 20 32 31 34 38 36 36 38 31 36 36 34 38 37 20 32 31 34 38 36 36 38 31 39 34 36 34 30 20 37 39 32 35 36 38 32 38 30
+data_50000_230	4d 43 20 32 31 34 38 36 36 38 31 36 39 32 34 32 20 32 31 34 38 36 36 38 31 39 34 32 31 31 20 36 32 33 34 34 38 32 30 30
+data_50000_230	4c 49 20 32 31 34 38 36 36 38 31 38 38 38 38 34 20 32 31 34 38 36 36 38 31 39 33 37 38 33 20 32 34 30 30 33 34 36 38 38

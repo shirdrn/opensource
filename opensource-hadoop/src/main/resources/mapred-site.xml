@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+        <property>
+		<name>mapred.job.tracker</name>
+                <value>hdfs://ubuntu3:9001/</value> 
+                <description>Host or IP and port of JobTracker.</description> 
+        </property>
+        <property>
+		<name>mapred.system.dir</name>
+                <value>/opt/stone/cloud/storage/mapred/system</value>
+		<description>Path on the HDFS where where the MapReduce framework stores system files.Note: This is in the default filesystem (HDFS) and must be accessible from both the server and client machines.</description>
+	</property>
+	<property>
+		<name>mapred.local.dir</name>
+                <value>/opt/stone/cloud/storage/mapred/local</value>
+		<description>Comma-separated list of paths on the local filesystem where temporary MapReduce data is written. Note: Multiple paths help spread disk i/o.</description>
+	</property>
+</configuration>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+        <property>
+		<name>fs.default.name</name>
+		<value>hdfs://ubuntu3:9000/</value>
+		<description></description>
+	</property>
+	<property>
+        	<name>dfs.replication</name>
+        	<value>1</value>
+	</property>
+        <property>
+		<name>hadoop.tmp.dir</name>
+                <value>/opt/stone/cloud/storage/tmp/hadoop-${user.name}</value>
+		<description></description>
+	</property>
+</configuration>
