@@ -2,10 +2,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.shirdrn.opensource</groupId>
-		<artifactId>opensource-solr</artifactId>
+		<artifactId>solr</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>opensource-solr-webapp</artifactId>
+	<artifactId>solr-webapp</artifactId>
 	<name>SOLR Web application</name>
 	
 	<dependencies>

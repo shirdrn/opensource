@@ -5,11 +5,11 @@
 		<artifactId>opensource</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>opensource-solr</artifactId>
+	<artifactId>solr</artifactId>
 	<packaging>pom</packaging>
 	<name>Open Source Porject: SOLR</name>
 	<modules>
-		<module>opensource-solr-indexing</module>
-		<module>opensource-solr-webapp</module>
+		<module>solr-indexing</module>
+		<module>solr-webapp</module>
 	</modules>
 </project>

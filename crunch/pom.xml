@@ -5,7 +5,7 @@
 		<artifactId>opensource</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>opensource-crunch</artifactId>
+	<artifactId>crunch</artifactId>
 	<name>Open Source Project: Crunch</name>
 	
 	<properties>

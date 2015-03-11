@@ -7,11 +7,10 @@
 	
 	<modules>
 		<module>crunch</module>
-		<module>opensource-crunch</module>
-		<module>opensource-storm</module>
-		<module>opensource-hadoop</module>
-		<module>opensource-spark</module>
-		<module>opensource-solr</module>
+		<module>storm</module>
+		<module>hadoop1</module>
+		<module>spark</module>
+		<module>solr</module>
 	</modules>
 	
 	<properties>

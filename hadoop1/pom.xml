@@ -5,8 +5,8 @@
 		<artifactId>opensource</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>opensource-hadoop</artifactId>
-	<name>Open Source Project: Hadoop</name>
+	<artifactId>hadoop1</artifactId>
+	<name>Open Source Project: Hadoop 1</name>
 	
 	<dependencies>
 		<dependency>
