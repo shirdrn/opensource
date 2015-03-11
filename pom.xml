@@ -11,6 +11,7 @@
 		<module>hadoop1</module>
 		<module>spark</module>
 		<module>solr</module>
+		<module>dubbo</module>
 	</modules>
 	
 	<properties>
