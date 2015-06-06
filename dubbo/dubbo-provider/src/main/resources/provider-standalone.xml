@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath*:jedis.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<dubbo:application name="chatroom-standalone-provider" />
+	<!-- <dubbo:registry address="multicast://224.0.0.7:8903" /> -->
+	<dubbo:registry address="zookeeper://zk1:2181?backup=zk2:2181,zk3:2181" />
+	
+	<dubbo:protocol name="dubbo" port="20880" />
+	
+	<dubbo:service interface="org.shirdrn.dubbo.api.ChatRoomOnlineUserCounterService" 
+		version="1.0.0" timeout="10000" loadbalance="random" actives="100" executes="200"
+		ref="chatRoomOnlineUserCounterService" protocol="dubbo" >
+		<dubbo:method name="queryRoomUserCount" timeout="5000" retries="2" loadbalance="leastactive" actives="50" />
+	</dubbo:service>
+	
+	<bean id="chatRoomOnlineUserCounterService" class="org.shirdrn.dubbo.provider.service.ChatRoomOnlineUserCounterServiceImpl" >
+		<property name="jedisPool" ref="jedisPool" />
+	</bean>
+	
+	<bean id="jedisPool" class="redis.clients.jedis.JedisPool" destroy-method="destroy">
+		<constructor-arg index="0">
+			<bean class="org.apache.commons.pool2.impl.GenericObjectPoolConfig">
+				<property name="maxTotal" value="${redis.pool.maxTotal}" />
+				<property name="maxIdle" value="${redis.pool.maxIdle}" />
+				<property name="minIdle" value="${redis.pool.minIdle}" />
+				<property name="maxWaitMillis" value="${redis.pool.maxWaitMillis}" />
+				<property name="testOnBorrow" value="${redis.pool.testOnBorrow}" />
+				<property name="testOnReturn" value="${redis.pool.testOnReturn}" />
+				<property name="testWhileIdle" value="true" />
+			</bean>
+		</constructor-arg>
+		<constructor-arg index="1" value="${redis.host}" />
+		<constructor-arg index="2" value="${redis.port}" />
+		<constructor-arg index="3" value="${redis.timeout}" />
+	</bean>
+	
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<dubbo:application name="chatroom-consumer" />
+	<!-- <dubbo:registry address="multicast://224.0.0.7:8903" /> -->
+	<dubbo:registry address="zookeeper://zk1:2181?backup=zk2:2181,zk3:2181" />
+	
+	<dubbo:reference id="chatRoomOnlineUserCounterService" interface="org.shirdrn.dubbo.api.ChatRoomOnlineUserCounterService" version="1.0.0">
+		<dubbo:method name="queryRoomUserCount" retries="2" />
+	</dubbo:reference>
+
+</beans>
