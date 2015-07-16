@@ -1,24 +1,35 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.shirdrn.opensource</groupId>
-	<artifactId>opensource</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<parent>
+		<groupId>org.shirdrn.opensource</groupId>
+		<artifactId>opensource</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>opensource-tokenizers</artifactId>
 	<packaging>pom</packaging>
-	
+	<name>Tokenizers</name>
 	<modules>
-		<module>opensource-crunch</module>
-		<module>opensource-storm</module>
-		<module>opensource-hadoop1</module>
-		<module>opensource-spark</module>
-		<module>opensource-solr</module>
-		<module>opensource-dubbo</module>
-		<module>opensource-tokenizers</module>
+		<module>opensource-tokenizers-lucene</module>
+		<module>opensource-tokenizers-mmseg4j</module>
 	</modules>
-	
+
+	<dependencies>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>18.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+	</dependencies>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
+
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -30,7 +41,7 @@
 						<encoding>${project.build.sourceEncoding}</encoding>
 						<source>1.7</source>
 						<target>1.7</target>
-						<skipTests>false</skipTests>
+						<skipTests>true</skipTests>
 					</configuration>
 				</plugin>
 			</plugins>
