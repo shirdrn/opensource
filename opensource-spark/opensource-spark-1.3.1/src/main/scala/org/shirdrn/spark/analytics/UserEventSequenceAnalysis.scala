@@ -79,7 +79,6 @@ object UserEventSequenceAnalysis {
     val rdd = fs.globStatus(input)
       .map(file => sc.textFile(file.getPath.toString))
       .reduce(_ ++ _)
-    fs.close
 
     // Core computation logic
     val resultRDD = rdd.map { record =>
@@ -105,5 +104,6 @@ object UserEventSequenceAnalysis {
 
     // save final computation result
     resultRDD.saveAsTextFile(output)
+    fs.close
   }
 }
